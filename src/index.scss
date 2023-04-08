@@ -1,0 +1,188 @@
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff");
+}
+@font-face {
+  font-family: "SF";
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+@font-face {
+  font-family: "L";
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff");
+}
+* { padding: 0; margin: 0; user-select: none;box-sizing: border-box;}
+
+:root{
+  --primColor: "#eca83a";
+}
+body, html{
+  font-size: 14px;  
+  background-color: #111111;
+  color: #fff;
+  font-family: "San Francisco";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#root{
+  width: 270px;
+  height: 585px;
+  background-color: #000;
+  position: relative;
+}
+#statusBar{
+  width: 100%;
+  height: 2.5em;
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "San Francisco";
+  font-weight: 500;
+  div#leftBar{
+    width: 22%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+      font-size: 0.8rem;
+    }
+    p{
+      margin: .3em;
+    }
+  }
+
+  div#rightBar{
+    width: 22%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg:nth-child(1){
+      font-size: .65rem;
+      margin: 0.2em;
+    }
+    svg:nth-child(2){
+      font-size: 1rem;
+    }
+  }
+}
+
+#tabs{
+  width: 100%;
+  height: 5em;
+  background-color: #000;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.60rem;
+  a svg{
+    width: 2.5em;
+    fill: white;
+  }
+  a p{
+    padding-bottom: 0.5em;
+    color: #9A9A9A;
+  }
+  a{
+    text-decoration: none;
+
+  }
+  .tab{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center; 
+    align-items: center;
+  }
+}
+#alarmHeader{
+  width: 100%;
+  height: 5.5em;
+  display: flex;
+  justify-content: space-between;
+  div{
+    display: flex;
+    margin: 0.7em;
+  }
+  div#alarmRight{
+    width: auto;
+    flex-direction: column;
+      align-items: flex-end;
+      svg{
+        color: #eca83a; 
+
+      }
+    }
+  div#alarmLeft{
+    width: max-content;
+    flex-direction: column;
+    p {
+      color: #eca83a;
+       font-family: "SF";
+      //  font-weight: 600;
+    }
+    #worldClockTitle{
+      color: #fff;
+      font-family: "San Francisco";
+      font-size: 2em;
+      margin-top: 0.35em;
+      margin-bottom: 0.1em;
+    }
+  }
+}
+
+hr{
+  border: none;
+  border-top: 0.1em solid #171717;
+  margin: 0 .5em;
+
+}
+
+.clock {
+  display: flex;
+  width: 100%;
+  height: 4.5em;
+  margin: 0.5em;
+}
+  .clockLeft{
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+    span{
+      color: #9A9A9A;
+      font-size: .8em;
+    }
+    p{
+      font-size: 1.8em;
+      font-family: "SF";
+    }
+  }
+  .clockRight{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 1em;
+    p{
+      font-family: "L";
+      font-weight: 100;
+      font-size: 3.65em;
+    }
+    span{
+      font-size: 1.6rem;
+      font-family: "SF";
+      margin-left: -.20em;
+    }
+  }
