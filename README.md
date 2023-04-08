@@ -18,3 +18,4 @@ The goal of this project is to create an accurate UI/UX clone of the *IOS 16 Clo
 Phase 1   
 ---
  
+![rsc](resources.png)
