@@ -3,35 +3,26 @@ import WorldClock from "./WorldClock";
 import Alarm from "./Alarm";
 import Stopwatch from "./Stopwatch";
 import Timer from "./Timer";
-import { useSelector, useDispatch } from "react-redux";
+import Colors from "./Colors";
+import { useContext, useState} from "react";
+
 function Tabs(){
     //by defualt 
-    const color = useSelector(state => state.counter.color);
-
-    const dispatch = useDispatch();
-  
-    function handleIncrement() {
-      dispatch({ type: 'ENABLE' });
-    }
-  
-    function handleDecrement() {
-      dispatch({ type: 'DISABLE' });
-    }
-  
-
-    // let color = "#9A9A9A"
-    // let color = "#EA9950"
+    const [tabs, FocusTab] = useState([1,0,0,0]) 
+   
+    let color = "#9A9A9A"
+    let colorFocused = "#EA9950"
     return (
         <>
         <section id="tabs">
-            <Link className="tab" to="/" onClick={()=>handleIncrement()}>
+            <Link className="tab" to="/" onClick={()=>FocusTab([1, 0, 0, 0])}>
                 
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="300.000000pt" height="300.000000pt" viewBox="0 0 300.000000 300.000000"
  preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
-fill={color} stroke="none">
+fill={tabs[0] ? Colors.orange : Colors.gray } stroke="none">
 <path d="M1260 2720 c-587 -123 -1002 -629 -1003 -1220 0 -520 329 -988 824
 -1170 258 -95 570 -97 829 -5 349 125 638 414 764 765 93 257 91 571 -4 829
 -154 417 -514 723 -950 805 -114 22 -348 20 -460 -4z m168 -402 l-3 -193 -25
@@ -69,15 +60,15 @@ c0 107 4 195 8 195 5 0 30 -14 55 -31z m-483 -14 c0 -2 -17 -28 -37 -58 -21
 30 62 45 83 60 83 11 0 51 -14 90 -31z"/>
 </g>    
             </svg>
-            <p style={{color: color}}>World Clock</p>
+            <p style={{color: tabs[0] ? Colors.orange : Colors.gray}}>World Clock</p>
             </Link>
-            <Link className="tab" to="/Alarm" onClick={()=>handleDecrement()}>
+            <Link className="tab" to="/Alarm" onClick={()=>FocusTab([0, 1, 0, 0])}>
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="300.000000pt" height="300.000000pt" viewBox="0 0 300.000000 300.000000"
  preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
-fill="#9A9A9A" stroke="none">
+fill={tabs[1] ? Colors.orange : Colors.gray } stroke="none">
 <path d="M614 2782 c-142 -51 -234 -181 -234 -331 0 -70 15 -126 41 -152 40
 -40 63 -29 303 153 126 94 233 182 239 195 17 38 -11 83 -72 116 -69 38 -200
 47 -277 19z"/>
@@ -95,15 +86,15 @@ fill="#9A9A9A" stroke="none">
 12 75 15 275 15 l245 0 0 343 c0 366 2 380 50 404 31 16 42 16 75 1z"/>
 </g>
 </svg>
-            <p>Alarm</p>
+            <p style={{color: tabs[1] ? Colors.orange : Colors.gray}}> Alarm</p>
             </Link>
-            <Link className="tab" to="/Stopwatch">
+            <Link className="tab" to="/Stopwatch" onClick={()=>FocusTab([0, 0, 1, 0])}> 
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="300.000000pt" height="300.000000pt" viewBox="0 0 300.000000 300.000000"
  preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
-fill="#9A9A9A" stroke="none">
+fill={tabs[2] ? Colors.orange : Colors.gray} stroke="none">
 <path d="M1452 2898 c-58 -19 -83 -64 -90 -164 l-7 -88 -73 -12 c-383 -64
 -741 -329 -918 -678 -105 -206 -139 -349 -138 -576 1 -173 18 -280 67 -420
 117 -336 378 -617 697 -752 185 -79 320 -108 503 -108 145 0 232 12 362 52
@@ -117,15 +108,15 @@ fill="#9A9A9A" stroke="none">
 </g>
 </svg>
 
-            <p style={{color: {color}}}>Stopwatch</p>
+            <p style={{color: tabs[2] ? Colors.orange : Colors.gray}}>Stopwatch</p>
             </Link>
-            <Link className="tab" to="/Timer">
+            <Link className="tab" to="/Timer" onClick={()=>FocusTab([0, 0, 0, 1])}>
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="300.000000pt" height="300.000000pt" viewBox="0 0 300.000000 300.000000"
  preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
-fill="#9A9A9A" stroke="none">
+fill={tabs[3] ? Colors.orange : Colors.gray} stroke="none">
 <path d="M1439 2761 c-24 -19 -24 -20 -29 -298 -5 -280 -1 -331 24 -353 26
 -20 95 -15 121 10 24 23 25 26 27 229 l3 206 35 3 c63 7 207 -33 333 -91 264
 -122 465 -348 557 -626 74 -227 71 -497 -10 -709 -133 -349 -429 -603 -787
@@ -139,7 +130,7 @@ fill="#9A9A9A" stroke="none">
 3 304 -32 30 -662 470 -705 493 -28 14 -34 14 -61 -5z"/>
 </g>
 </svg>
-            <p>Timer</p>
+            <p style={{color: tabs[3] ? Colors.orange : Colors.gray}}>Timer</p>
             </Link>
 
         </section>
