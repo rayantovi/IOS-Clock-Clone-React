@@ -1,10 +1,10 @@
 import { Route, Routes, Link } from "react-router-dom";
-import WorldClock from "./WorldClock";
-import Alarm from "./Alarm";
-import Stopwatch from "./Stopwatch";
-import Timer from "./Timer";
-import Colors from "./Colors";
-import Icons from "./Icons";
+import WorldClock from "./Tabs/WorldClock";
+import Alarm from "./Tabs/Alarm";
+import Stopwatch from "./Tabs/Stopwatch";
+import Timer from "./Tabs/Timer";
+import Colors from "./assets/Colors";
+import Icons from "./assets/Icons";
 import { useState } from "react";
 
 function Tabs(){
