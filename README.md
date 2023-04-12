@@ -1,5 +1,5 @@
 # IOS (16) Clock App in React 
-
+https://rayantovi.github.io/IOS-Clock-Clone-React/
 The goal of this project is to create an accurate UI/UX clone of the *IOS 16 Clock app* in 2 phases:
 
 
