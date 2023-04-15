@@ -12,7 +12,7 @@
   font-family: "L";
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff");
 }
-* { padding: 0; margin: 0; user-select: none;box-sizing: border-box;}
+* {  scroll-behavior: smooth;padding: 0; margin: 0; user-select: none;box-sizing: border-box;}
 
 :root{
   --primColor: "#eca83a";
@@ -27,6 +27,8 @@ body, html{
   align-items: center;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+ 
 }
 
 #root{
@@ -125,7 +127,9 @@ body, html{
   div#alarmLeft{
     width: max-content;
     flex-direction: column;
-    p {
+    a {
+      width: max-content;
+      text-decoration: none;
       color: #eca83a;
        font-family: "SF";
       //  font-weight: 600;
@@ -152,8 +156,10 @@ hr{
   width: 100%;
   height: 4.5em;
   margin: 0.5em;
+  transition: 500ms;
 }
   .clockLeft{
+    min-width: 5em;
     width: max-content;
     display: flex;
     flex-direction: column;
@@ -186,3 +192,55 @@ hr{
       margin-left: -.20em;
     }
   }
+#alarmBody{
+  width: 100%;
+  height: 73%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+.edit{    
+  transition: 500ms;
+  position: relative;
+  margin-left: 3em;
+}
+.clockRightEdit{
+  display: none;
+}
+.circleMinus{
+  position: absolute;
+  left: -2em;
+  top: 2em;
+  color: red;
+  font-size: 1rem;
+  transition: opacity;
+  animation: fadeIn 500ms linear;
+  @keyframes fadeIn {
+    0%{
+      opacity: 0;
+    }
+    20%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 10;
+    }
+    
+  }
+}
+::-webkit-scrollbar{
+  position: absolute;
+  left: 0;
+  width: .15em;
+  background-color: #000;
+  border-radius: 50%;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #c2c2c2ae;
+  border-radius: 50%;
+  
+}
+
+
+
+

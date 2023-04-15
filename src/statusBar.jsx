@@ -1,10 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faBatteryEmpty, faSignal } from '@fortawesome/free-solid-svg-icons'
-import { createContext } from 'react';
-
-
-const level = createContext(1)
-
 
 
 function Bar(){

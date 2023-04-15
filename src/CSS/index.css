@@ -12,6 +12,7 @@
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff");
 }
 * {
+  scroll-behavior: smooth;
   padding: 0;
   margin: 0;
   -webkit-user-select: none;
@@ -34,6 +35,7 @@ body, html {
   align-items: center;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 #root {
@@ -135,7 +137,11 @@ body, html {
   width: max-content;
   flex-direction: column;
 }
-#alarmHeader div#alarmLeft p {
+#alarmHeader div#alarmLeft a {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  text-decoration: none;
   color: #eca83a;
   font-family: "SF";
 }
@@ -158,9 +164,11 @@ hr {
   width: 100%;
   height: 4.5em;
   margin: 0.5em;
+  transition: 500ms;
 }
 
 .clockLeft {
+  min-width: 5em;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -193,5 +201,69 @@ hr {
   font-size: 1.6rem;
   font-family: "SF";
   margin-left: -0.2em;
+}
+
+#alarmBody {
+  width: 100%;
+  height: 73%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.edit {
+  transition: 500ms;
+  position: relative;
+  margin-left: 3em;
+}
+
+.clockRightEdit {
+  display: none;
+}
+
+.circleMinus {
+  position: absolute;
+  left: -2em;
+  top: 2em;
+  color: red;
+  font-size: 1rem;
+  transition: opacity;
+  -webkit-animation: fadeIn 500ms linear;
+          animation: fadeIn 500ms linear;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 10;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 10;
+  }
+}
+
+::-webkit-scrollbar {
+  position: absolute;
+  left: 0;
+  width: 0.15em;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(194, 194, 194, 0.6823529412);
+  border-radius: 50%;
 }
 /*# sourceMappingURL=index.css.map */
