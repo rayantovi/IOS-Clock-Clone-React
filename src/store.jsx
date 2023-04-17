@@ -9,9 +9,7 @@ export function StoreProvider({ children }) {
       .then((res) => res.json())
       .then((res) => {
 
-        console.log(res)
         let time = new Date(res.datetime.split(".")[0]);
-        console.log(time)
         time = time.toLocaleString("en-US", {
         hour: "numeric",
         minute: "numeric",
@@ -30,7 +28,6 @@ export function StoreProvider({ children }) {
                 size= "1em";break;
             }
         }
-        console.log(size)
         setClocks([
         {
             location: location[index].replaceAll("_", " "), 
