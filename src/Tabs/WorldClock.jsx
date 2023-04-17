@@ -1,16 +1,15 @@
 import { faPlus, faCircleMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useId, useRef, useState } from "react";
-import { React } from "react";
+import  React  from "react";
 import Store from "../store";
 import Colors from "../assets/Colors";
 
 
 
-
 function Clock() {
   const { clocks, addClock, removeClock, edit, toggleEdit } = useContext(Store);
-  console.log(clocks)
+  // console.log(clocks)
   if(clocks.length>0){
   return clocks.map(clock=>{
     return (
@@ -27,7 +26,7 @@ function Clock() {
             )}
             <div className="clockLeft">
               <span>{clock.timeDifference}</span>
-              <p>{clock.location}</p>
+              <p style={{fontSize: clock.fontSize}}>{clock.location}</p>
             </div>
             <div className={edit ? "clockRightEdit" : "clockRight"}>
               <p>
@@ -56,6 +55,12 @@ function Clock() {
 
 
 export default function WorldClock() {
+  const [timeip, setip] = useState(null)
+  useEffect(()=>{
+   
+
+
+  }, [])
   const { clocks, addClock, edit, toggleEdit } = useContext(Store);
   let length = clocks.length
   let time = new Date();
@@ -64,8 +69,6 @@ export default function WorldClock() {
     minute: "numeric",
     hour12: true,
   });
-
-
   return (
     <>
       <div id="alarmHeader">
@@ -79,11 +82,11 @@ export default function WorldClock() {
             {
             edit ? "Done" : "Edit"
             }
-          </a> : <a id="alarmLeft">&nbsp;</a> }
+          </a> : <a id="alarmLeft ">&nbsp;</a> }
           <p id="worldClockTitle">World Clock</p>
         </div>
 
-        <div id="alarmRight" >
+        <div id="alarmRight">
           <FontAwesomeIcon
             onClick={() => addClock("Erbil"+Math.floor(Math.random()*16), ["5:30","AM"], "Today, +0HRS")}
             icon={faPlus}
@@ -97,7 +100,7 @@ export default function WorldClock() {
         
          <Clock />
 
-         
+        {timeip} 
         
       </div>
     </>
