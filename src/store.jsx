@@ -5,7 +5,7 @@ const Store = createContext();
 export function StoreProvider({ children }) {
 
   useEffect(() => {
-    const json = fetch("http://worldtimeapi.org/api/ip")
+    const json = fetch("https://worldtimeapi.org/api/ip")
       .then((res) => res.json())
       .then((res) => {
 
