@@ -1,6 +1,6 @@
 import { faPlus, faCircleMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useEffect, useId, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import  React  from "react";
 import Store from "../store";
 import Colors from "../assets/Colors";
@@ -8,12 +8,14 @@ import Colors from "../assets/Colors";
 
 
 function Clock() {
-  const { clocks, addClock, removeClock, edit, toggleEdit } = useContext(Store);
+  const { clocks, addClock, removeClock, edit, toggleEdit} = useContext(Store);
   // console.log(clocks)
+
+
   if(clocks.length>0){
-  return clocks.map(clock=>{
+  return clocks.map((clock, idx)=>{
     return (
-        <>
+        <React.Fragment key={clock.location+idx}>
         <div className={edit ? "clock edit" : "clock"}>
             {edit && (
               <FontAwesomeIcon
@@ -24,22 +26,22 @@ function Clock() {
                 }}
               />
             )}
-            <div className="clockLeft">
-              <span>{clock.timeDifference}</span>
-              <p style={{fontSize: clock.fontSize}}>{clock.location}</p>
+            <div className="w-[80%] flex flex-col justify-center ">
+              <span className="text-gray text-[0.6em] ">{clock.timeDifference}</span>
+              <p style={{fontSize: clock.fontSize}} className="sf-regular ">{clock.location}</p>
             </div>
             <div className={edit ? "clockRightEdit" : "clockRight"}>
-              <p>
-                {clock.time[0]}
+              <p className="sf-thin text-[3.3em]">
+                {clock.time[0]} 
 
-                <span> {clock.time[1]} </span>
+                <span className="sf-thin"> {clock.time[1]} </span>
               </p>
             </div>
           </div>
 
           <hr />
         
-        </>
+        </ React.Fragment>
     )
   })}else{
     return (
@@ -48,6 +50,9 @@ function Clock() {
     </p>
     )
   }
+  
+
+
   }
   
 
@@ -56,12 +61,9 @@ function Clock() {
 
 export default function WorldClock() {
   const [timeip, setip] = useState(null)
-  useEffect(()=>{
-   
 
 
-  }, [])
-  const { clocks, addClock, edit, toggleEdit } = useContext(Store);
+  const { clocks, addClock, edit, toggleEdit} = useContext(Store);
   let length = clocks.length
   let time = new Date();
   time = time.toLocaleString("en-US", {
@@ -69,6 +71,7 @@ export default function WorldClock() {
     minute: "numeric",
     hour12: true,
   });
+
   return (
     <>
       <div id="alarmHeader">
@@ -83,7 +86,7 @@ export default function WorldClock() {
             edit ? "Done" : "Edit"
             }
           </a> : <a id="alarmLeft ">&nbsp;</a> }
-          <p id="worldClockTitle">World Clock</p>
+          <p id="worldClockTitle" className="sf-semibold">World Clock</p>
         </div>
 
         <div id="alarmRight">
@@ -94,13 +97,12 @@ export default function WorldClock() {
         </div>
       </div>
 
-      <div id="alarmBody" style={length<1  ? {justifyContent:"center", alignItems: "center"} : null}>
+      <div id="alarmBody" style={length < 1  ? {justifyContent:"center", alignItems: "center"} : null}>
 
         {length ? <hr /> : null}
         
          <Clock />
 
-        {timeip} 
         
       </div>
     </>
