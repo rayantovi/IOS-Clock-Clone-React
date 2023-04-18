@@ -61,7 +61,7 @@ export function StoreProvider({ children }) {
   const removeClock = (location) => {
     setClocks(clocks.filter((clock) => clock.location !== location));
   };
-
+ 
   return (
     <Store.Provider value={{ clocks, addClock, removeClock, edit, toggleEdit}}>
       {children}

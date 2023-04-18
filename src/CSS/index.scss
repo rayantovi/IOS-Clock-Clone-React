@@ -2,19 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-
+// https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff
 @font-face {
   font-family: "sf-semibold";
   font-weight: 400;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff");
+  src: url("../Fonts/sanfranciscodisplay-semibold-webfont.woff");
 }
 @font-face {
   font-family: "sf-regular";
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+  src: url("../Fonts/sanfranciscodisplay-regular-webfont.woff");
 }
 @font-face {
   font-family: "sf-thin";
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff");
+  src: url("../Fonts/sanfranciscodisplay-thin-webfont.woff");
 }
 * {  scroll-behavior: smooth;padding: 0; margin: 0; user-select: none;box-sizing: border-box;}
 

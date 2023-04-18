@@ -9,7 +9,8 @@ import Colors from "../assets/Colors";
 
 function Clock() {
   const { clocks, addClock, removeClock, edit, toggleEdit} = useContext(Store);
-  // console.log(clocks)
+
+
 
 
   if(clocks.length>0){
