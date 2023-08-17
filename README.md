@@ -1,5 +1,5 @@
 # IOS (16) Clock App in React 
-
+***shi i forgot everything i'm gonnna rewrite the whole thing ***
 ~~NOTE: Development is paused until after exams (June-July)~~
 <br/>
 The goal of this project is to create an accurate UI/UX clone of the *IOS 16 Clock app* in 2 phases:
